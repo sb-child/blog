@@ -24,7 +24,7 @@ const Inner = (props: {}) => {
     'content_key_' + loc.pathname,
   );
   const nextPost = post ? findPost(post.nextUrl) : undefined;
-  const showTitle = post && post.folder != 'layout';
+  const showTitle = post && post.folder !== 'layout';
   React.useEffect(() => {
     setPost(findPost(loc.pathname));
     setContentKey('content_key_' + loc.pathname);
@@ -197,7 +197,12 @@ const Inner = (props: {}) => {
           <Space>
             Copyright 2022 - 2024
             <a href="https://github.com/sb-child">sbchild</a>
-            <a href="https://icp.gov.moe/?keyword=20241989" target="_blank">
+            <a href="https://github.com/sb-child/blog">源代码</a>
+            <a
+              href="https://icp.gov.moe/?keyword=20241989"
+              target="_blank"
+              rel="noreferrer"
+            >
               萌ICP备20241989号
             </a>
           </Space>
