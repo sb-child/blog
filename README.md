@@ -4,6 +4,10 @@
 
 The source code of <https://sbchild.top/blog>
 
+这个博客还有一些未完成的功能, 欢迎 pr
+
+There are still some incomplete features, pull requests welcome
+
 ## License / 许可证
 
 本站除 blog 内容 (`src/posts/*`, `src/assets/*`) 外, 其他文件均采用 [`Apache 2.0`](./LICENSE) 许可证进行许可
