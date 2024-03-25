@@ -194,10 +194,12 @@ const Inner = (props: {}) => {
       </motion.div>
       <motion.div layout="position" className={styles.footerBlock}>
         <div className={styles.footerCopyright}>
+          <div>
+            <a href="https://github.com/sb-child/blog">源代码</a>
+          </div>
           <Space>
             Copyright 2022 - 2024
             <a href="https://github.com/sb-child">sbchild</a>
-            <a href="https://github.com/sb-child/blog">源代码</a>
             <a
               href="https://icp.gov.moe/?keyword=20241989"
               target="_blank"
