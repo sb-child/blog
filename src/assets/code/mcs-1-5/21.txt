@@ -1,0 +1,33 @@
+pub async fn check_tokens(
+
+...
+
+) -> Result<(), prisma_client_rust::QueryError> {
+  let results = cli.user().find_many(vec![]).exec().await?.into_iter().map(|u| {
+    (
+      // 可用
+      cli
+        .token()
+        .find_many(vec![
+          prisma::token::status::equals(prisma::TokenStatus::Available),
+          prisma::token::owner::is(vec![prisma::user::WhereParam::Id(prisma::read_filters::BigIntFilter::Equals(
+            u.id,
+          ))]),
+        ])
+        .order_by(prisma::token::created_at::order(prisma_client_rust::Direction::Desc)),
+      // 需要刷新
+      cli
+        .token()
+        .find_many(vec![
+          prisma::token::status::equals(prisma::TokenStatus::NeedRefresh),
+          prisma::token::owner::is(vec![prisma::user::UniqueWhereParam::IdEquals(u.id).into()]),
+        ])
+        .order_by(prisma::token::created_at::order(prisma_client_rust::Direction::Desc)),
+      // 用户设置
+      cli.setting().find_unique(prisma::setting::UniqueWhereParam::UserIdEquals(u.id)),
+    )
+  });
+
+  ...
+
+}

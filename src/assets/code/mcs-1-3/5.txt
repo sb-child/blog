@@ -1,0 +1,11 @@
+async fn index(State(state): State<AppState>) -> Json<meta_resp::GetMetadataResp> {
+
+...
+
+}
+
+async fn login(State(state): State<AppState>, req: Json<login_req::LoginReq>) -> Json<login_resp::LoginResp> {
+
+...
+
+}

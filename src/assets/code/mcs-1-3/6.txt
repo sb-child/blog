@@ -1,0 +1,6 @@
+async fn login(State(state): State<AppState>, req: Json<login_req::LoginReq>) -> Json<login_resp::LoginResp> {
+  tracing::info!("{:?}", state.db);
+
+...
+
+}

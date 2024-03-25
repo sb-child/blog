@@ -1,0 +1,11 @@
+$ cargo r --bin mc-auth
+   Compiling mc-auth v0.1.0 (/home/sbchild/mc-auth)
+    Finished dev [unoptimized + debuginfo] target(s) in 23.87s
+     Running `target/debug/mc-auth`
+2023-11-30T13:02:17.996531Z  INFO mc_auth: 色麦块认证服务器~
+2023-11-30T13:02:18.001224Z  INFO mc_auth: 配置: Settings { server_name: "涩麦块", implementation_name: "mc-auth", implementation_version: "0.1.0" }
+2023-11-30T13:02:18.001343Z  INFO mc_auth: 正在连接数据库...
+2023-11-30T13:02:18.030910Z  INFO quaint::pooled: Starting a postgresql pool with 9 connections.
+2023-11-30T13:02:18.187916Z  INFO mc_auth: 正在合并数据库...
+2023-11-30T13:02:18.325958Z  INFO mc_auth: 合并了 0 个对象, 数据库已经是最新的啦
+2023-11-30T13:02:18.327802Z  INFO mc_auth: 认证服务器正在监听 127.0.0.1:2345

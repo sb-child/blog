@@ -1,0 +1,11 @@
+$ cargo r --bin mc-auth
+   Compiling mc-auth v0.1.0 (/home/sbchild/mc-auth)
+    Finished dev [unoptimized + debuginfo] target(s) in 25.31s
+     Running `target/debug/mc-auth`
+2023-11-29T08:26:46.797088Z  INFO mc_auth: 色麦块认证服务器~
+2023-11-29T08:26:46.797184Z  INFO mc_auth: 正在连接数据库...
+2023-11-29T08:26:46.816357Z  INFO quaint::pooled: Starting a postgresql pool with 9 connections.
+2023-11-29T08:26:46.944819Z  INFO mc_auth: 正在合并数据库...
+2023-11-29T08:26:47.070330Z  INFO mc_auth: 合并了 0 个对象, 数据库已经是最新的啦
+2023-11-29T08:26:47.070626Z  INFO mc_auth: 认证服务器正在监听 127.0.0.1:2345
+2023-11-29T08:27:03.979253Z  INFO mc_auth: Json(LoginReq { agent: Some(Agent { name: Some("Minecraft"), version: Some(1) }), client_token: Some("5bf5742e53aa4fc2b020aa2f7312b69d"), password: "bbb", request_user: Some(true), username: "aaa" })

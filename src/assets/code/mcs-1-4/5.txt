@@ -1,0 +1,36 @@
+...
+
+use mc_auth::{
+  app_state::AppState,
+  models::{
+    login::{login_req, login_resp, LoginTransactionError},
+    meta::meta_resp,
+    // 这里啦
+    profile, user,
+  },
+  prisma,
+};
+
+...
+
+async fn login(State(state): State<AppState>, req: Json<login_req::LoginReq>) -> Json<login_resp::LoginResp> {
+
+  ...
+
+  tracing::info!("{:?}", req);
+  Json(login_resp::LoginResp {
+    access_token: "9aab59824b72408a9b1c2ab2493e3d8b".to_owned(),
+    available_profiles: vec![profile::Profile {
+      id: "67f0d17981804a03ad851dbd6bbd4eb8".to_owned(),
+      name: "涩妹妹".to_owned(),
+      properties: vec![],
+    }],
+    client_token: req.client_token.clone().unwrap(),
+    selected_profile: Some(profile::Profile {
+      id: "67f0d17981804a03ad851dbd6bbd4eb8".to_owned(),
+      name: "涩妹妹".to_owned(),
+      properties: vec![],
+    }),
+    user: None,
+  })
+}

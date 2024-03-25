@@ -1,0 +1,22 @@
+pub async fn check_tokens(
+
+...
+
+) -> Result<(), prisma_client_rust::QueryError> {
+
+  ...
+
+  for (_, (avaliable, need_refresh, settings)) in results.into_iter().enumerate() {
+    let (max_tokens, token_need_refresh_duration, token_invalid_duration) = if let Some(item) = settings {
+      (item.max_token, item.token_need_refresh_duration, item.token_invalid_duration)
+    } else {
+      (default_max_tokens, default_token_need_refresh_duration, default_token_invalid_duration)
+    };
+
+    // todo
+
+  }
+
+  ...
+
+}

@@ -1,0 +1,15 @@
+$ curl -v http://127.0.0.1:2345/
+*   Trying 127.0.0.1:2345...
+* Connected to 127.0.0.1 (127.0.0.1) port 2345
+> GET / HTTP/1.1
+> Host: 127.0.0.1:2345
+> User-Agent: curl/8.4.0
+> Accept: */*
+> 
+< HTTP/1.1 200 OK
+< content-type: application/json
+< content-length: 246
+< date: Thu, 30 Nov 2023 13:05:43 GMT
+< 
+* Connection #0 to host 127.0.0.1 left intact
+{"meta":{"serverName":"涩麦块","implementationName":"mc-auth","implementationVersion":"0.1.0","links":{"homepage":"https://sbchild.top/","register":"https://sbchild.top/"}},"skinDomains":["sbchild.top","*.sbchild.top"],"signaturePublickey":""}

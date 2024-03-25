@@ -1,0 +1,12 @@
+...
+
+pub type ErrorResponse = (axum::http::StatusCode, axum::Json<Error>);
+
+impl Error {
+
+  ...
+
+  pub fn to_response(self) -> ErrorResponse {
+    (self.status_code, axum::Json::from(self))
+  }
+}

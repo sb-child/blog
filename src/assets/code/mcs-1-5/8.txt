@@ -1,0 +1,10 @@
+...
+
+[dependencies]
+
+...
+
+rand = "*"
+uuid = { version = "*", features = ["v4", "fast-rng"] }
+
+...

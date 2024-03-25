@@ -1,0 +1,21 @@
+...
+
+async fn index(State(state): State<AppState>) -> Json<meta_resp::GetMetadataResp> {
+  Json(meta_resp::GetMetadataResp {
+    meta: meta_resp::Meta {
+      server_name: state.settings.server_name,
+      implementation_name: state.settings.implementation_name,
+      implementation_version: state.settings.implementation_version,
+...
+
+    }
+
+...
+
+  }
+
+...
+
+}
+
+...

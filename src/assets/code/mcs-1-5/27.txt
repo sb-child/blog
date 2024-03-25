@@ -1,0 +1,51 @@
+pub async fn check_tokens(
+
+...
+
+) -> Result<(), prisma_client_rust::QueryError> {
+
+  ...
+
+  for (_, (avaliable, need_refresh, settings)) in results.into_iter().enumerate() {
+    
+    ...
+
+    let mut token_counter = max_tokens;
+
+    // 如果超过创建时间 + token_need_refresh_duration, 则设置令牌为 NeedRefresh
+    // 如果 token_counter <= 0, 则设置令牌为 Invalid
+    for (_, x) in avaliable.into_iter().enumerate() {
+      tracing::info!("检查用户 {} 的可用令牌 {}...", x.owner_id, x.id);
+      if {
+        token_counter -= 1;
+        token_counter > 0
+      } {
+        if now.timestamp() - x.created_at.timestamp() > token_need_refresh_duration {
+          tracing::info!("用户 {} 的可用令牌 {} 暂时失效", x.owner_id, x.id);
+          cli
+            .token()
+            .update(prisma::token::UniqueWhereParam::IdEquals(x.id), vec![prisma::token::SetParam::SetStatus(
+              prisma::TokenStatus::NeedRefresh,
+            )])
+            .exec()
+            .await?;
+        }
+      } else {
+        tracing::info!("用户 {} 的可用令牌 {} 因数量超出而永久失效", x.owner_id, x.id);
+        cli
+          .token()
+          .update(prisma::token::UniqueWhereParam::IdEquals(x.id), vec![prisma::token::SetParam::SetStatus(
+            prisma::TokenStatus::Invalid,
+          )])
+          .exec()
+          .await?;
+      }
+    }
+
+    // todo
+
+  }
+
+  ...
+
+}

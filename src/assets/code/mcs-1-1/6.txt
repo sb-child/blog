@@ -1,0 +1,7 @@
+$ cargo r
+   Compiling mc-auth v0.1.0 (/home/sbchild/mc-auth)
+    Finished dev [unoptimized + debuginfo] target(s) in 4.28s
+     Running `target/debug/mc-auth`
+2023-11-28T13:03:31.766705Z DEBUG mc_auth: 认证服务端正在监听 127.0.0.1:2345
+2023-11-28T13:04:39.701164Z DEBUG request{method=GET uri=/ version=HTTP/1.1}: tower_http::trace::on_request: started processing request
+2023-11-28T13:04:39.701314Z DEBUG request{method=GET uri=/ version=HTTP/1.1}: tower_http::trace::on_response: finished processing request latency=0 ms status=200

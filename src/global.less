@@ -1,0 +1,112 @@
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #1c1f28;
+}
+
+._theme_root_._theme_normal {
+  background-color: #1c1f28;
+  // color: #fff;
+  color: rgb(230, 237, 243);
+  color-scheme: dark;
+}
+
+._theme_root_._theme_death {
+  background-color: #f1ecc3;
+  // color: #fff;
+  color: rgb(18, 18, 19);
+  color-scheme: dark;
+}
+
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+
+  // color-scheme: dark;
+  // color: rgb(230, 237, 243);
+  // background-color: #1c1f28;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+.ant-typography a.__no_override__ {
+  transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+  color: #fff;
+}
+
+a:not(.__no_override__) {
+  color: #539bf5;
+  text-decoration: none;
+}
+
+a:hover:not(.__no_hover_border__):not(.url-link):not(.email-link):not(
+    .__no_override__
+  ) {
+  outline: 1px solid #e59700;
+  outline-offset: -1px;
+}
+
+:where(._theme_death) {
+  .ant-typography a.__no_override__ {
+    color: rgba(0, 0, 0, 0.88);
+  }
+
+  .ant-typography a.ant-btn-primary.__no_override__ {
+    color: rgb(255, 255, 255);
+  }
+
+  // a:not(.__no_override__) {
+  //   color: rgb(230, 166, 94);
+  // }
+
+  a:hover:not(.__no_hover_border__):not(.url-link):not(.email-link):not(
+      .__no_override__
+    ) {
+    outline: 1px solid #e59700;
+  }
+}
+
+a.url-link,
+a:hover.email-link {
+  box-shadow: 0 -1px #2380f1 inset;
+  color: #80b8fd;
+  transition-delay: 0.05s;
+  transition-property: all;
+  transition-delay: 0s;
+  transition-timing-function: ease;
+  // outline: 1px solid #e59700;
+  // outline-offset: -1px;
+}
+
+a:hover.url-link,
+a:hover.email-link {
+  box-shadow: 0 -10px #2380f16c inset;
+  color: #80b8fd;
+  //   outline: 1px solid #e59700;
+  //   outline-offset: -1px;
+}
+
+.comp-codeview :not(pre) > code[class*='language-'],
+.comp-codeview pre[class*='language-'] {
+  background: #22272e;
+  border: #0000;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+._icon {
+  display: inline-flex;
+  align-items: center;
+  color: inherit;
+  font-style: normal;
+  line-height: 0;
+  text-align: center;
+  text-transform: none;
+  vertical-align: -0.125em;
+  text-rendering: optimizelegibility;
+}

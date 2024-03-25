@@ -1,0 +1,13 @@
+...
+
+// 这里啦
+use crate::{prisma, settings::Settings};
+
+...
+
+#[derive(Clone)]
+pub struct AppState {
+  pub db: DbState,
+  // 和这里啦
+  pub settings: Settings,
+}

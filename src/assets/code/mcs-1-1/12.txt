@@ -1,0 +1,9 @@
+$ sudo -u postgres psql
+psql (15.4)
+输入 "help" 来获取帮助信息.
+
+postgres=# create user mcauth password 'password';
+CREATE ROLE
+postgres=# create database mcauth_db owner mcauth;
+CREATE DATABASE
+postgres=# \q

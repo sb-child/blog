@@ -1,0 +1,13 @@
+$ sudo -u postgres psql mcauth_db
+psql (15.4)
+输入 "help" 来获取帮助信息.
+
+mcauth_db=# select * from "Profile";
+ id |         uuid         | ownerID | displayName | skinID | capeID | uploadableTextures |        createdAt        
+----+----------------------+---------+-------------+--------+--------+--------------------+-------------------------
+  1 | \x010203040506070809 |       1 | sb-child    |        |        | SkinAndCape        | 2023-11-29 17:33:05.768
+(1 行记录)
+
+mcauth_db=# \q
+
+$

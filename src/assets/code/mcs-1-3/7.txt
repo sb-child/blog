@@ -1,0 +1,21 @@
+$ cargo r --bin mc-auth
+   Compiling mc-auth v0.1.0 (/home/sbchild/mc-auth)
+warning: unused variable: `state`
+  --> src/main.rs:59:22
+   |
+59 | async fn index(State(state): State<AppState>) -> Json<meta_resp::GetMetadataResp> {
+   |                      ^^^^^ help: if this is intentional, prefix it with an underscore: `_state`
+   |
+   = note: `#[warn(unused_variables)]` on by default
+
+warning: `mc-auth` (bin "mc-auth") generated 1 warning (run `cargo fix --bin "mc-auth"` to apply 1 suggestion)
+    Finished dev [unoptimized + debuginfo] target(s) in 26.62s
+     Running `target/debug/mc-auth`
+2023-11-29T14:35:01.449172Z  INFO mc_auth: 色麦块认证服务器~
+2023-11-29T14:35:01.449230Z  INFO mc_auth: 正在连接数据库...
+2023-11-29T14:35:01.470499Z  INFO quaint::pooled: Starting a postgresql pool with 9 connections.
+2023-11-29T14:35:01.607638Z  INFO mc_auth: 正在合并数据库...
+2023-11-29T14:35:01.857893Z  INFO mc_auth: 合并了 0 个对象, 数据库已经是最新的啦
+2023-11-29T14:35:01.858310Z  INFO mc_auth: 认证服务器正在监听 127.0.0.1:2345
+2023-11-29T14:35:42.495260Z  INFO mc_auth: PrismaClient
+2023-11-29T14:35:42.495312Z  INFO mc_auth: Json(LoginReq { agent: Some(Agent { name: Some("Minecraft"), version: Some(1) }), client_token: Some("4b74420aca9b45b78ab394455efb036e"), password: "aaa", request_user: Some(true), username: "aaa" })

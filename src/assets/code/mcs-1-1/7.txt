@@ -1,0 +1,15 @@
+$ curl -v http://127.0.0.1:2345/
+*   Trying 127.0.0.1:2345...
+* Connected to 127.0.0.1 (127.0.0.1) port 2345
+> GET / HTTP/1.1
+> Host: 127.0.0.1:2345
+> User-Agent: curl/8.4.0
+> Accept: */*
+> 
+< HTTP/1.1 200 OK
+< content-type: application/json
+< content-length: 13
+< date: Tue, 28 Nov 2023 13:04:39 GMT
+< 
+* Connection #0 to host 127.0.0.1 left intact
+{"x":"hello"}

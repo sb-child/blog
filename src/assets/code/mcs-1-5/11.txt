@@ -1,0 +1,26 @@
+async fn login(State(state): State<AppState>, req: Json<login_req::LoginReq>) -> Json<login_resp::LoginResp> {
+  let access_token = utils::gen_access_token();
+  let client_token = req.client_token.clone().unwrap_or(utils::gen_uuid());
+  let user: Result<(Option<prisma::profile::Data>, prisma::user::Data), LoginTransactionError> = state
+    .db
+    ._transaction()
+    .run(|cli| {
+      let req = req.clone();
+
+      // 这里啦
+      let access_token = access_token.clone();
+      let client_token = client_token.clone();
+
+      async move {
+      
+      ...
+
+      }
+    
+    ...
+
+    }
+
+...
+
+}

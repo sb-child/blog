@@ -1,0 +1,16 @@
+use serde::{Deserialize, Serialize};
+
+#[derive(Serialize, Deserialize, Debug, Clone)]
+pub struct Error {
+	#[serde(rename = "cause")]
+	pub cause: Option<String>,
+
+	#[serde(rename = "error")]
+	pub error: String,
+
+	#[serde(rename = "errorMessage")]
+	pub error_message: String,
+    
+  #[serde(skip)]
+  pub status_code: axum::http::StatusCode,
+}

@@ -1,0 +1,25 @@
+...
+
+use tokio::{fs, net::TcpListener};
+
+...
+
+#[tokio::main]
+async fn main() -> anyhow::Result<()> {
+  tracing_subscriber::registry().with(tracing_subscriber::fmt::layer()).with(LevelFilter::INFO).init();
+
+  tracing::info!("色麦块认证服务器~");
+
+  // 这里啦
+  let settings_str = match fs::read_to_string("Settings.toml").await {
+    Ok(v) => v,
+    Err(_e) => "".to_owned(),
+  };
+  let settings: Settings = toml::from_str(&settings_str)?;
+  tracing::info!("配置: {:?}", settings);
+
+...
+
+}
+
+...

@@ -1,0 +1,62 @@
+async fn login(State(state): State<AppState>, req: Json<login_req::LoginReq>) -> Json<login_resp::LoginResp> {
+  tracing::info!("{:?}", state.db);
+  let user: Result<(Option<prisma::profile::Data>, prisma::user::Data), LoginTransactionError> = state
+    .db
+    ._transaction()
+    .run(|cli| {
+      let req = req.clone();
+      async move {
+        let include_display_name = req.username.split_once(":");
+        match include_display_name {
+          Some((dn, email)) => {
+            // 根据 角色名+邮箱 匹配用户
+            let user_match_displayname = cli
+              .user()
+              .find_first(vec![
+                prisma::user::profile::some(vec![prisma::profile::display_name::equals(dn.to_string())]),
+                prisma::user::email::equals(email.to_string()),
+                prisma::user::password::equals(req.password.clone()),
+              ])
+              .exec()
+              .await?;
+            let profile = cli
+              .profile()
+              .find_unique(prisma::profile::UniqueWhereParam::DisplayNameEquals(dn.to_string()))
+              .exec()
+              .await?;
+            if let Some(user) = user_match_displayname {
+              return Ok((profile, user));
+            }
+          },
+          None => {
+            // 根据邮箱匹配用户
+            let user_match_email = cli
+              .user()
+              .find_first(vec![
+                prisma::user::email::equals(req.username.clone()),
+                prisma::user::password::equals(req.password.clone()),
+              ])
+              .exec()
+              .await?;
+            if let Some(user) = user_match_email {
+              return Ok((None, user));
+            }
+          },
+        }
+        // 如果找不到用户, 则返回错误
+        Err(LoginTransactionError::InvalidUser)
+      }
+    })
+    .await;
+  match user {
+    Ok(v) => {
+      tracing::info!("匹配到用户 {:?}", v);
+    },
+    Err(e) => {
+      tracing::error!("登录失败: {:?}", e);
+    },
+  };
+
+...
+
+}

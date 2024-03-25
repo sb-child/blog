@@ -1,0 +1,2 @@
+$ cargo init mc-auth
+     Created binary (application) package

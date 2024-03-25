@@ -1,0 +1,12 @@
+async fn index() -> Json<meta_resp::GetMetadataResp> {
+  Json(meta_resp::GetMetadataResp {
+    meta: meta_resp::Meta {
+      server_name: "色麦块".to_owned(),
+      implementation_name: "色麦块认证服务器".to_owned(),
+      implementation_version: "0.0.1".to_owned(),
+      links: meta_resp::MetaLinks { homepage: "https://sbchild.top/".to_owned(), register: "https://sbchild.top/".to_owned() },
+    },
+    skin_domains: vec!["sbchild.top".to_owned(), "*.sbchild.top".to_owned()],
+    signature_publickey: "".to_owned(),
+  })
+}

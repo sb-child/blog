@@ -1,0 +1,31 @@
+$ cargo r --bin mc-auth
+   Compiling mc-auth v0.1.0 (/home/sbchild/mc-auth)
+warning: unused variable: `state`
+  --> src/main.rs:75:22
+   |
+75 | async fn index(State(state): State<AppState>) -> Json<meta_resp::GetMetadataResp> {
+   |                      ^^^^^ help: if this is intentional, prefix it with an underscore: `_state`
+   |
+   = note: `#[warn(unused_variables)]` on by default
+
+warning: `mc-auth` (bin "mc-auth") generated 1 warning (run `cargo fix --bin "mc-auth"` to apply 1 suggestion)
+    Finished dev [unoptimized + debuginfo] target(s) in 23.07s
+     Running `target/debug/mc-auth`
+2023-11-30T06:43:36.264854Z  INFO mc_auth: 色麦块认证服务器~
+2023-11-30T06:43:36.264913Z  INFO mc_auth: 正在连接数据库...
+2023-11-30T06:43:36.271300Z  INFO quaint::pooled: Starting a postgresql pool with 9 connections.
+2023-11-30T06:43:36.401548Z  INFO mc_auth: 正在合并数据库...
+2023-11-30T06:43:36.606152Z  INFO mc_auth: 合并了 0 个对象, 数据库已经是最新的啦
+2023-11-30T06:43:36.606491Z  INFO mc_auth: 认证服务器正在监听 127.0.0.1:2345
+2023-11-30T06:44:09.315395Z  INFO mc_auth: PrismaClient
+2023-11-30T06:44:09.332059Z  INFO mc_auth: 匹配到用户 (None, Data { id: 1, uuid: [0, 1, 2, 3, 4, 5, 6, 7, 8], nickname: "sbchild", email: "sbchild0@gmail.com", password: "password", language: ZhCn, created_at: 2023-11-29T17:18:37.987+00:00, profile: None, token: None, setting: None })
+2023-11-30T06:44:09.332131Z  INFO mc_auth: Json(LoginReq { agent: Some(Agent { name: Some("Minecraft"), version: Some(1) }), client_token: Some("3e9e6126854e4992ab930e564322334b"), password: "password", request_user: Some(true), username: "sbchild0@gmail.com" })
+2023-11-30T06:44:28.449148Z  INFO mc_auth: PrismaClient
+2023-11-30T06:44:28.467793Z ERROR mc_auth: 登录失败: InvalidUser
+2023-11-30T06:44:28.467840Z  INFO mc_auth: Json(LoginReq { agent: Some(Agent { name: Some("Minecraft"), version: Some(1) }), client_token: Some("822e7974cd554ebcb159b58a734c8e78"), password: "password", request_user: Some(true), username: ":" })
+2023-11-30T06:45:02.406553Z  INFO mc_auth: PrismaClient
+2023-11-30T06:45:02.417044Z ERROR mc_auth: 登录失败: InvalidUser
+2023-11-30T06:45:02.417082Z  INFO mc_auth: Json(LoginReq { agent: Some(Agent { name: Some("Minecraft"), version: Some(1) }), client_token: Some("481561761a1b4963a4695894a468f592"), password: "password", request_user: Some(true), username: ":sbchild0@gmail.com" })
+2023-11-30T06:45:22.188264Z  INFO mc_auth: PrismaClient
+2023-11-30T06:45:22.206244Z  INFO mc_auth: 匹配到用户 (Some(Data { id: 1, uuid: [1, 2, 3, 4, 5, 6, 7, 8, 9], owner: None, owner_id: 1, display_name: "sb-child", skin: None, skin_id: None, cape: None, cape_id: None, uploadable_textures: SkinAndCape, created_at: 2023-11-29T17:33:05.768+00:00, token: None }), Data { id: 1, uuid: [0, 1, 2, 3, 4, 5, 6, 7, 8], nickname: "sbchild", email: "sbchild0@gmail.com", password: "password", language: ZhCn, created_at: 2023-11-29T17:18:37.987+00:00, profile: None, token: None, setting: None })
+2023-11-30T06:45:22.206367Z  INFO mc_auth: Json(LoginReq { agent: Some(Agent { name: Some("Minecraft"), version: Some(1) }), client_token: Some("e1ece41202ad4e23a053333e1be79764"), password: "password", request_user: Some(true), username: "sb-child:sbchild0@gmail.com" })

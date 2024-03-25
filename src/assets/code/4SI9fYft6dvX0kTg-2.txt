@@ -1,0 +1,38 @@
+---
+date: 2022-10-16
+lang: "zh-CN"
+article: false
+contributors: false
+pageview: false
+comment: false
+lastUpdated: false
+editLink: false
+---
+
+# [预览模式]自动重定向
+
+::: warning
+{{ notice }}
+:::
+
+<script setup>
+    import { useRouter } from 'vue-router';
+    import { ref } from 'vue';
+    const PROD = process.env.NODE_ENV === 'production';
+    const router = useRouter();
+    console.log(router);
+    const p = router.currentRoute.value.query.path;
+    const notice = ref('请稍等...');
+    setTimeout(() => router.back(), 500);
+    if(PROD) {
+        notice.value = "此网页已部署, 参数将被忽略";
+    } else if(p == undefined) {
+        notice.value = "path 参数未设置";
+    } else {
+        const w = 'vscode://file/' + p;
+        notice.value = "正在跳转至 " + w + " ...";
+        window.open(w, "_self");
+        const W = window;
+        setTimeout(() => W.location.reload(true), 600);
+    }
+</script>

@@ -1,0 +1,11 @@
+$ sudo -u postgres psql mcauth_db
+psql (15.4)
+输入 "help" 来获取帮助信息.
+
+mcauth_db=# select * from "User";
+ id |         uuid         | nickname |       email        | password | language |        createdAt        
+----+----------------------+----------+--------------------+----------+----------+-------------------------
+  1 | \x000102030405060708 | sbchild  | sbchild0@gmail.com | password | ZH_CN    | 2023-11-29 17:18:37.987
+(1 行记录)
+
+mcauth_db=# \q

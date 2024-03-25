@@ -1,0 +1,43 @@
+use prisma::PrismaClient;
+use rand::Rng;
+
+use crate::prisma;
+
+// 生成随机的 access token (32位长)
+pub fn gen_access_token() -> String {
+  let mut rng = rand::thread_rng();
+  let characters: Vec<char> = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".chars().collect();
+  let token: String = (0..32)
+    .map(|_| {
+      let idx = rng.gen_range(0, characters.len());
+      characters[idx] as char
+    })
+    .collect();
+  token
+}
+
+// 生成随机的无符号 uuid
+pub fn gen_uuid() -> String {
+  uuid::Uuid::new_v4().as_simple().to_string()
+}
+
+// 在数据库中为一个用户添加一个token记录
+pub async fn add_token(
+  cli: PrismaClient,
+  profile: Option<i64>,
+  user: i64,
+  access_token: String,
+  client_token: String,
+) -> Result<prisma::token::Data, prisma_client_rust::QueryError> {
+  if let Some(profile_id) = profile {
+    cli
+      .token()
+      .create(access_token, client_token, prisma::user::UniqueWhereParam::IdEquals(user), vec![
+        prisma::token::SetParam::SetProfileId(Some(profile_id)),
+      ])
+      .exec()
+  } else {
+    cli.token().create(access_token, client_token, prisma::user::UniqueWhereParam::IdEquals(user), vec![]).exec()
+  }
+  .await
+}

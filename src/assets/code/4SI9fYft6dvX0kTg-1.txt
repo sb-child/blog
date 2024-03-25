@@ -1,0 +1,22 @@
+import { getDirname, path } from '@vuepress/utils';
+
+const PROD = process.env.NODE_ENV === 'production';
+const DIR = getDirname(import.meta.url);
+
+// 需添加或修改的配置项
+export default hopeTheme({
+  // 换成代码存储库根目录链接
+  repo: 'https://my.sbchild.top:81/gl/dypqbb/sbchild.top/-/tree/master',
+  repoDisplay: true,
+  editLinkPattern: PROD
+    // 换成代码存储库的编辑链接, ":branch" 会被替换为下方的 `docsBranch`, ":path" 会被替换为文章的相对位置
+    ? 'https://my.sbchild.top:81/gl/dypqbb/sbchild.top/-/edit/:branch/:path'
+    : '/U9vTG9N4_openvscode?path=/' + DIR + '/../../:path',
+  // 换成代码存储库名
+  docsRepo: 'dypqbb/sbchild.top',
+  // 换成 `.vuepress` 所在的目录名
+  docsDir: 'src',
+  // 换成文章所在分支
+  docsBranch: 'master',
+  editLink: true,
+});

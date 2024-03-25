@@ -1,0 +1,24 @@
+...
+
+#[tokio::main]
+async fn main() -> anyhow::Result<()> {
+
+...
+
+  // db.profile().create(
+  //   vec![1, 2, 3, 4, 5, 6, 7, 8, 9],
+  //   prisma::user::email::equals("sbchild0@gmail.com".to_owned()),
+  //   "sb-child".to_owned(),
+  //   vec![],
+  // ).exec().await?;
+
+  // 在这里啦
+  let state = AppState { db: Arc::new(db), settings };
+
+  let app = Router::new()
+
+...
+
+}
+
+...

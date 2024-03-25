@@ -1,0 +1,33 @@
+use axum::{routing, Json, Router};
+use serde::{Deserialize, Serialize};
+use tokio::net::TcpListener;
+use tracing_subscriber::{layer::SubscriberExt, util::SubscriberInitExt};
+use tower_http::trace::TraceLayer;
+
+#[derive(Serialize, Deserialize)]
+struct Hello {
+    x: String,
+}
+
+#[tokio::main]
+async fn main() -> anyhow::Result<()> {
+    tracing_subscriber::registry()
+        .with(tracing_subscriber::fmt::layer())
+        .init();
+
+    let app = Router::new()
+        .route("/", routing::get(index))
+        .layer(TraceLayer::new_for_http());
+
+    let listener = TcpListener::bind("127.0.0.1:2345").await.unwrap();
+    tracing::debug!("认证服务端正在监听 {}", listener.local_addr().unwrap());
+
+    axum::serve(listener, app).await.unwrap();
+    Ok(())
+}
+
+async fn index() -> Json<Hello> {
+    Json(Hello {
+        x: "hello".to_owned(),
+    })
+}

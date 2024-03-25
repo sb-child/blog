@@ -1,0 +1,41 @@
+async fn login(State(state): State<AppState>, req: Json<login_req::LoginReq>) -> Json<login_resp::LoginResp> {
+
+  ...
+
+  let user: Result<(Option<prisma::profile::Data>, prisma::user::Data), LoginTransactionError> = state
+    .db
+    ._transaction()
+    .run(|cli| {
+
+      ...
+
+      async move {
+        let include_display_name = req.username.split_once(":");
+        match include_display_name {
+          Some((dn, email)) => {
+            // 根据 角色名+邮箱 匹配用户
+            
+            ...
+
+            if let Some(user) = user_match_displayname {
+              // 这里啦
+              utils::add_token(cli, Some(profile.id), user.id, access_token, client_token).await?;
+              return Ok((Some(profile), user));
+            }
+          },
+
+          ...
+        
+        }
+
+        ...
+
+      }
+
+      ...
+
+    });
+
+  ...
+
+}

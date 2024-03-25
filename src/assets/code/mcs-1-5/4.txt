@@ -1,0 +1,44 @@
+use serde::Deserialize;
+
+...
+
+fn default_skin_domains() -> Vec<String> {
+  vec![]
+}
+
+fn default_homepage_link() -> String {
+  "".to_owned()
+}
+
+fn default_register_link() -> String {
+  "".to_owned()
+}
+
+fn default_pubkey() -> String {
+  "".to_owned()
+}
+
+fn default_prikey() -> String {
+  "".to_owned()
+}
+
+#[derive(Deserialize, Debug, Clone)]
+pub struct Settings {
+
+...
+
+  #[serde(rename = "skin-domains", default = "default_skin_domains")]
+  pub skin_domains: Vec<String>,
+
+  #[serde(rename = "homepage-link", default = "default_homepage_link")]
+  pub homepage_link: String,
+
+  #[serde(rename = "register-link", default = "default_register_link")]
+  pub register_link: String,
+
+  #[serde(rename = "pubkey", default = "default_pubkey")]
+  pub pubkey: String,
+
+  #[serde(rename = "prikey", default = "default_prikey")]
+  pub prikey: String,
+}

@@ -1,0 +1,30 @@
+$ cargo r --bin mc-auth
+   Compiling mc-auth v0.1.0 (/home/sbchild/mc-auth)
+warning: unused import: `profile`
+  --> src/main.rs:10:5
+   |
+10 |     profile,
+   |     ^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` on by default
+
+warning: `mc-auth` (bin "mc-auth") generated 1 warning (run `cargo fix --bin "mc-auth"` to apply 1 suggestion)
+    Finished dev [unoptimized + debuginfo] target(s) in 28.06s
+     Running `target/debug/mc-auth`
+2023-12-03T16:42:36.918199Z  INFO mc_auth: 色麦块认证服务器~
+2023-12-03T16:42:36.925165Z  INFO mc_auth: 配置: Settings { server_name: "涩麦块", implementation_name: "mc-auth", implementation_version: "0.1.0", skin_domains: [], homepage_link: "", register_link: "", pubkey: "", prikey: "", token: Token { max: 10, need_refresh_duration: 60, invalid_duration: 60 } }
+2023-12-03T16:42:36.925235Z  INFO mc_auth: 正在连接数据库...
+2023-12-03T16:42:36.934549Z  INFO quaint::pooled: Starting a postgresql pool with 9 connections.
+2023-12-03T16:42:37.123496Z  INFO mc_auth: 正在合并数据库...
+2023-12-03T16:42:37.372937Z  INFO mc_auth: 合并了 0 个对象, 数据库已经是最新的啦
+2023-12-03T16:42:37.373256Z  INFO mc_auth: 认证服务器正在监听 127.0.0.1:2345
+2023-12-03T16:43:04.026155Z  INFO mc_auth::utils: 检查用户 1 的可用令牌 17...
+2023-12-03T16:43:04.026193Z  INFO mc_auth::utils: 用户 1 的可用令牌 17 暂时失效
+2023-12-03T16:43:04.033643Z  INFO mc_auth::utils: 检查用户 1 的暂时失效令牌 16...
+2023-12-03T16:43:04.033674Z  INFO mc_auth::utils: 用户 1 的暂时失效令牌 16 永久失效
+2023-12-03T16:43:04.038182Z  INFO mc_auth::utils: 检查用户 1 的暂时失效令牌 15...
+2023-12-03T16:43:04.038210Z  INFO mc_auth::utils: 用户 1 的暂时失效令牌 15 永久失效
+2023-12-03T16:43:04.042428Z  INFO mc_auth::utils: 检查用户 1 的暂时失效令牌 14...
+2023-12-03T16:43:04.042463Z  INFO mc_auth::utils: 用户 1 的暂时失效令牌 14 永久失效
+2023-12-03T16:43:04.053068Z ERROR mc_auth: 登录失败: InvalidUser
+2023-12-03T16:43:04.053104Z  INFO mc_auth: Json(LoginReq { agent: Some(Agent { name: Some("Minecraft"), version: Some(1) }), client_token: Some("0c40059ce509458f85d13b72defdd84c"), password: "vvvv", request_user: Some(true), username: "aaa" })

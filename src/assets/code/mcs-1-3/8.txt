@@ -1,0 +1,32 @@
+#[tokio::main]
+async fn main() -> anyhow::Result<()> {
+  
+...
+
+  tracing::info!("正在合并数据库...");
+  match db._db_push().await {
+    Ok(v) => {
+      tracing::info!("合并了 {} 个对象, 数据库已经是最新的啦", v);
+    },
+    Err(e) => {
+      tracing::error!("数据库合并失败: {}", e);
+      return Err(anyhow::Error::new(e));
+    },
+  };
+  
+  // 在这里啦
+  db.user().create(
+    vec![0, 1, 2, 3, 4, 5, 6, 7, 8],
+    "sbchild".to_owned(),
+    "sbchild0@gmail.com".to_owned(),
+    "password".to_owned(),
+    vec![],
+  ).exec().await?;
+
+  let state = AppState { db: Arc::new(db) };
+
+  let app = Router::new()
+
+...
+
+}

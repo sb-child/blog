@@ -1,0 +1,13 @@
+...
+
+pub async fn check_tokens(
+  cli: PrismaClient,
+  default_max_tokens: i64,
+  default_token_need_refresh_duration: i64,
+  default_token_invalid_duration: i64,
+) -> Result<(), prisma_client_rust::QueryError> {
+
+  // todo
+
+  return Ok(());
+}

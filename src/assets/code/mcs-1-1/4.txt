@@ -1,0 +1,6 @@
+$ cargo r
+   Compiling anyhow v1.0.75
+   Compiling mc-auth v0.1.0 (/home/sbchild/mc-auth)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.94s
+     Running `target/debug/mc-auth`
+Hello, world!

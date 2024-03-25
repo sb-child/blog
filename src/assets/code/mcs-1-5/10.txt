@@ -1,0 +1,9 @@
+...
+
+async fn login(State(state): State<AppState>, req: Json<login_req::LoginReq>) -> Json<login_resp::LoginResp> {
+  let access_token = utils::gen_access_token();
+  let client_token = req.client_token.clone().unwrap_or(utils::gen_uuid());
+
+...
+
+}

@@ -1,0 +1,10 @@
+$ cargo prisma db push
+    Finished dev [unoptimized + debuginfo] target(s) in 0.23s
+     Running `target/debug/prisma db push`
+Environment variables loaded from .env
+Prisma schema loaded from prisma/schema.prisma
+Datasource "db": PostgreSQL database "mcauth_db", schema "public" at "127.0.0.1:5432"
+
+🚀  Your database is now in sync with your Prisma schema. Done in 273ms
+
+✔ Generated Prisma Client Rust to ./src/prisma.rs in 465ms

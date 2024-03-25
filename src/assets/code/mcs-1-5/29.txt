@@ -1,0 +1,50 @@
+...
+
+async fn login(State(state): State<AppState>, req: Json<login_req::LoginReq>) -> Json<login_resp::LoginResp> {
+
+  ...
+
+  // 这里啦
+  let default_max_tokens = state.settings.token.max;
+  let default_token_need_refresh_duration = state.settings.token.need_refresh_duration;
+  let default_token_invalid_duration = state.settings.token.invalid_duration;
+
+  let user: Result<(Option<prisma::profile::Data>, prisma::user::Data), LoginTransactionError> = state
+    .db
+    ._transaction()
+    .run(|cli| {
+
+      ...
+
+    })
+    .await;
+
+  // 这里啦
+  let _ = state
+    .db
+    ._transaction()
+    .run(|cli| {
+      async move {
+        utils::check_tokens(
+          cli,
+          default_max_tokens,
+          default_token_need_refresh_duration,
+          default_token_invalid_duration,
+        )
+        .await
+      }
+    })
+    .await;
+
+  match user {
+    Ok(v) => {
+      tracing::info!("匹配到用户 {:?}", v);
+    },
+    Err(e) => {
+      tracing::error!("登录失败: {:?}", e);
+    },
+  };
+
+  ...
+
+}

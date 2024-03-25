@@ -1,0 +1,10 @@
+$ cargo r --bin mc-auth
+...
+    Finished dev [unoptimized + debuginfo] target(s) in 10.48s
+     Running `target/debug/mc-auth`
+2023-11-28T18:23:13.784954Z TRACE mio::poll: registering event source with poller: token=Token(94189871658112), interests=READABLE | WRITABLE    
+2023-11-28T18:23:13.785005Z DEBUG mc_auth: 认证服务端正在监听 127.0.0.1:2345
+2023-11-28T18:24:34.586517Z TRACE mio::poll: registering event source with poller: token=Token(94189871663360), interests=READABLE | WRITABLE    
+2023-11-28T18:24:34.587276Z DEBUG request{method=GET uri=/ version=HTTP/1.1}: tower_http::trace::on_request: started processing request
+2023-11-28T18:24:34.587486Z DEBUG request{method=GET uri=/ version=HTTP/1.1}: tower_http::trace::on_response: finished processing request latency=0 ms status=200
+2023-11-28T18:24:34.588147Z TRACE mio::poll: deregistering event source from poller

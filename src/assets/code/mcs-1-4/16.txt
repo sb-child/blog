@@ -1,0 +1,19 @@
+$ cargo r --bin mc-auth
+warning: unused variable: `state`
+  --> src/main.rs:84:22
+   |
+84 | async fn index(State(state): State<AppState>) -> Json<meta_resp::GetMetadataResp> {
+   |                      ^^^^^ help: if this is intentional, prefix it with an underscore: `_state`
+   |
+   = note: `#[warn(unused_variables)]` on by default
+
+warning: `mc-auth` (bin "mc-auth") generated 1 warning (run `cargo fix --bin "mc-auth"` to apply 1 suggestion)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.59s
+     Running `target/debug/mc-auth`
+2023-11-30T12:37:17.295201Z  INFO mc_auth: 色麦块认证服务器~
+2023-11-30T12:37:17.295696Z  INFO mc_auth: 配置: Settings { server_name: "涩麦块", implementation_name: "mc-auth", implementation_version: "0.1.0" }
+2023-11-30T12:37:17.295725Z  INFO mc_auth: 正在连接数据库...
+2023-11-30T12:37:17.304181Z  INFO quaint::pooled: Starting a postgresql pool with 9 connections.
+2023-11-30T12:37:17.386103Z  INFO mc_auth: 正在合并数据库...
+2023-11-30T12:37:17.492407Z  INFO mc_auth: 合并了 0 个对象, 数据库已经是最新的啦
+2023-11-30T12:37:17.492674Z  INFO mc_auth: 认证服务器正在监听 127.0.0.1:2345

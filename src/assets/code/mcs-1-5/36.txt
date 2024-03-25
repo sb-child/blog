@@ -1,0 +1,39 @@
+...
+
+#[tokio::main]
+async fn main() -> anyhow::Result<()> {
+
+  ...
+
+  tracing::info!("正在合并数据库...");
+  match db._db_push().await {
+
+    ...
+
+  };
+
+  // 这里
+  // db.user()
+  //   .update(prisma::user::UniqueWhereParam::EmailEquals("sbchild0@gmail.com".to_owned()), vec![
+  //     prisma::user::SetParam::SetUuid(uuid::Uuid::new_v4().as_bytes().to_vec()),
+  //   ])
+  //   .exec()
+  //   .await?;
+
+  // 和这里啦
+  // db.profile()
+  //   .update(prisma::profile::UniqueWhereParam::DisplayNameEquals("sb-child".to_owned()), vec![
+  //     prisma::profile::SetParam::SetUuid(uuid::Uuid::new_v4().as_bytes().to_vec()),
+  //   ])
+  //   .exec()
+  //   .await?;
+
+  ...
+
+  let state = AppState { db: Arc::new(db), settings };
+
+  ...
+
+}
+
+...

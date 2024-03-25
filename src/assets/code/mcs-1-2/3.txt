@@ -1,0 +1,11 @@
+$ cargo prisma db push
+   Compiling mc-auth v0.1.0 (/home/sbchild/mc-auth)
+    Finished dev [unoptimized + debuginfo] target(s) in 15.34s
+     Running `target/debug/prisma db push`
+Environment variables loaded from .env
+Prisma schema loaded from prisma/schema.prisma
+Datasource "db": PostgreSQL database "mcauth_db", schema "public" at "127.0.0.1:5432"
+
+The database is already in sync with the Prisma schema.
+
+✔ Generated Prisma Client Rust to ./src/prisma.rs in 514ms

@@ -1,0 +1,17 @@
+pub async fn check_tokens(
+
+...
+
+) -> Result<(), prisma_client_rust::QueryError> {
+  let results = cli.user().find_many(vec![]).exec().await?.into_iter().map(|u| {
+
+...
+
+  });
+
+  let results = cli._batch(results).await?;
+  let now = chrono::Local::now();
+
+  ...
+
+}

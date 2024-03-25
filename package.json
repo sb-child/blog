@@ -1,0 +1,61 @@
+{
+  "name": "blog",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "pnpm umi build",
+    "clean": "./clean.sh",
+    "upload": "./deploy.sh",
+    "dev": "pnpm umi dev",
+    "postinstall": "pnpm umi setup",
+    "setup": "pnpm umi setup",
+    "v": "pnpm umi preview"
+  },
+  "lint-staged": {
+    "*.{js,less,md,json}": [
+      "prettier --write"
+    ],
+    "*.ts?(x)": [
+      "prettier --parser=typescript --write"
+    ]
+  },
+  "dependencies": {
+    "@ant-design/icons": "^5.3.5",
+    "@babel/core": "^7.24.3",
+    "@babel/preset-react": "^7.24.1",
+    "@mdi/js": "^7.4.47",
+    "@mdi/react": "^1.6.1",
+    "@monaco-editor/react": "^4.6.0",
+    "@types/node": "^20.11.30",
+    "@types/prismjs": "^1.26.3",
+    "@umijs/lint": "^4.1.5",
+    "antd": "^5.15.4",
+    "babel-plugin-prismjs": "^2.1.0",
+    "base64-js": "^1.5.1",
+    "dayjs": "^1.11.10",
+    "eslint": "^8.57.0",
+    "framer-motion": "^10.18.0",
+    "js-base64": "^3.7.7",
+    "localforage": "^1.10.0",
+    "match-sorter": "^6.3.4",
+    "monaco-editor": "^0.45.0",
+    "monaco-editor-webpack-plugin": "^7.1.0",
+    "prismjs": "^1.29.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.22.3",
+    "sort-by": "^1.2.0",
+    "stylelint": "^16.3.0",
+    "umi": "^4.1.5",
+    "webpack": "^5.91.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.70",
+    "@types/react-dom": "^18.2.22",
+    "prettier": "^3.2.5",
+    "prettier-plugin-organize-imports": "^3.2.4",
+    "prettier-plugin-packagejson": "^2.4.12",
+    "typescript": "^5.4.3"
+  }
+}

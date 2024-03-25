@@ -1,0 +1,28 @@
+async fn login(State(state): State<AppState>, req: Json<login_req::LoginReq>) -> Json<login_resp::LoginResp> {
+  tracing::info!("{:?}", state.db);
+  let user: Result<mc_auth::prisma::user::Data, LoginTransactionError> = state
+    .db
+    ._transaction()
+    .run(|cli| {
+      // 复制一份请求json, 供内部的闭包使用
+      // 否则内部的闭包会抢走 req 参数, 闭包外就不能使用它啦
+      let req = req.clone();
+      async move {
+        // todo
+        // 默认返回 InvalidUser 错误
+        Err(LoginTransactionError::InvalidUser)
+      }
+    })
+    .await;
+  match user {
+    Ok(v) => {
+      tracing::info!("匹配到用户 {}", v.id);
+    },
+    Err(e) => {
+      tracing::error!("登录失败: {:?}", e);
+    },
+  };
+
+...
+
+}

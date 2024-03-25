@@ -1,0 +1,6 @@
+// src/lib.rs
+
+#[allow(warnings, unused)]
+pub mod prisma;
+
+pub mod models;

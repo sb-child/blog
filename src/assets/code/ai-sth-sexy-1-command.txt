@@ -1,0 +1,3 @@
+# 种子: 1695964492
+
+./main -m ../ggml-model-f16.gguf -p "We are transgender female and we are lesbian. In a warm sweet home, we were lying on the bed, talking about sex, and touching body each other." -n -2 -c 8192 --repeat-last-n -1

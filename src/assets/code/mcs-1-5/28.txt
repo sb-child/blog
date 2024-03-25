@@ -1,0 +1,31 @@
+pub async fn check_tokens(
+
+...
+
+) -> Result<(), prisma_client_rust::QueryError> {
+
+  ...
+
+  for (_, (avaliable, need_refresh, settings)) in results.into_iter().enumerate() {
+
+    ...
+
+    // 如果超过创建时间 + token_need_refresh_duration + invalid_duration, 则设置令牌为 Invalid
+    for (_, x) in need_refresh.into_iter().enumerate() {
+      tracing::info!("检查用户 {} 的暂时失效令牌 {}...", x.owner_id, x.id);
+      if now.timestamp() - x.created_at.timestamp() > token_need_refresh_duration + token_invalid_duration {
+        tracing::info!("用户 {} 的暂时失效令牌 {} 永久失效", x.owner_id, x.id);
+        cli
+          .token()
+          .update(prisma::token::UniqueWhereParam::IdEquals(x.id), vec![prisma::token::SetParam::SetStatus(
+            prisma::TokenStatus::Invalid,
+          )])
+          .exec()
+          .await?;
+      }
+    }
+  }
+
+  ...
+
+}

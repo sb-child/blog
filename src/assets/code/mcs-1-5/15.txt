@@ -1,0 +1,11 @@
+...
+
+model Setting {
+
+  ...
+
+  // 令牌临时失效所需秒数
+  tokenNeedRefreshDuration BigInt @default(1296000) // 15 天
+  // 令牌永久失效所需秒数
+  tokenInvalidDuration     BigInt @default(432000) // 5 天
+}

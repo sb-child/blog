@@ -1,0 +1,13 @@
+chat title xx
+chat avatar chat.png
+type _ speed 1
+type _ sound
+# type _ mute
+avatar _ self.png
+avatar other other1.png
+nickname _ my
+nickname other x
+time now
+_: 喵
+delay 5
+_: 

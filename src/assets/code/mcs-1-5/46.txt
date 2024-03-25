@@ -1,0 +1,65 @@
+...
+
+async fn login(
+  State(state): State<AppState>,
+  req: Json<login_req::LoginReq>,
+) -> Result<Json<login_resp::LoginResp>, error::ErrorResponse> {
+
+  ...
+
+    .db
+    ._transaction()
+    .run(|cli| {
+
+      ...
+
+    })
+    .await;
+
+  // 这里啦
+  let user = match user {
+    Ok(v) => {
+      tracing::info!("匹配到用户 {:?}", v);  
+      v
+    },
+    Err(e) => {
+      tracing::error!("登录失败: {:?}", e);
+      match e {
+        LoginTransactionError::InvalidUser | LoginTransactionError::WrongPassword => {
+          return Err(error::Error::new_invalid_credentials().to_response());
+        }
+        _ => {
+          return Err(error::Error::new_database_error().to_response());
+        }
+      }
+    }
+  };
+
+  let check_tokens_result = state
+    .db
+    ._transaction()
+    .run(|cli| {
+      
+      ...
+
+    })
+    .await;
+  
+  // 这里啦
+  if let Err(e) = check_tokens_result {
+    return Err(error::Error::new_database_error().to_response());
+  }
+
+  // 删除这些代码
+  // match user {
+  //   Ok(v) => {
+  //     tracing::info!("匹配到用户 {:?}", v);
+  //   },
+  //   Err(e) => {
+  //     tracing::error!("登录失败: {:?}", e);
+  //   },
+  // };
+
+  ...
+
+}

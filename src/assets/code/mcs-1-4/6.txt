@@ -1,0 +1,26 @@
+$ cargo r --bin mc-auth
+   Compiling libm v0.2.8
+
+...
+
+   Compiling mc-auth v0.1.0 (/home/sbchild/mc-auth)
+warning: unused variable: `state`
+  --> src/main.rs:75:22
+   |
+75 | async fn index(State(state): State<AppState>) -> Json<meta_resp::GetMetadataResp> {
+   |                      ^^^^^ help: if this is intentional, prefix it with an underscore: `_state`
+   |
+   = note: `#[warn(unused_variables)]` on by default
+
+warning: `mc-auth` (bin "mc-auth") generated 1 warning (run `cargo fix --bin "mc-auth"` to apply 1 suggestion)
+    Finished dev [unoptimized + debuginfo] target(s) in 1m 34s
+     Running `target/debug/mc-auth`
+2023-11-30T05:30:45.616081Z  INFO mc_auth: 色麦块认证服务器~
+2023-11-30T05:30:45.616129Z  INFO mc_auth: 正在连接数据库...
+2023-11-30T05:30:45.621715Z  INFO quaint::pooled: Starting a postgresql pool with 9 connections.
+2023-11-30T05:30:45.714663Z  INFO mc_auth: 正在合并数据库...
+2023-11-30T05:30:45.864049Z  INFO mc_auth: 合并了 0 个对象, 数据库已经是最新的啦
+2023-11-30T05:30:45.864304Z  INFO mc_auth: 认证服务器正在监听 127.0.0.1:2345
+2023-11-30T05:31:50.043527Z  INFO mc_auth: PrismaClient
+2023-11-30T05:31:50.061158Z  INFO mc_auth: 匹配到用户 1
+2023-11-30T05:31:50.061196Z  INFO mc_auth: Json(LoginReq { agent: Some(Agent { name: Some("Minecraft"), version: Some(1) }), client_token: Some("19a9f250bbc64f34a2f3ad49571aecd2"), password: "password", request_user: Some(true), username: "sbchild0@gmail.com" })
