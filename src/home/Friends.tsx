@@ -65,6 +65,7 @@ function FriendCard(props: {
         // className={MainCss.BgColorBgLayout}
         actions={[
           <Button
+            key={'friend-link-' + props.title + '-' + props.link}
             type="primary"
             icon={<GlobalOutlined />}
             onClick={() => {
@@ -74,6 +75,7 @@ function FriendCard(props: {
             打开
           </Button>,
           <Button
+            key={'friend-link-copy-' + props.title + '-' + props.link}
             icon={<CopyOutlined />}
             onClick={() => {
               copyToClipboard(
@@ -212,7 +214,7 @@ export default function FriendsContent(props: {}) {
           title="poly000客栈"
           avatar={imgPoly}
           desc="poly的blog喵"
-          link="https://poly000.github.io/"
+          link="https://mokurin000.github.io/"
         />
         <FriendCard
           title="ChengxujiのBlog"
