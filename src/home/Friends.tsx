@@ -85,7 +85,7 @@ function FriendCard(props: {
               );
             }}
           >
-            {copied == 0 ? '复制链接' : copied == 1 ? '已复制' : '复制失败'}
+            {copied === 0 ? '复制链接' : copied === 1 ? '已复制' : '复制失败'}
           </Button>,
         ]}
       >
@@ -108,6 +108,12 @@ export default function FriendsContent(props: {}) {
   return (
     <Anim k="root-friends" className="__content__">
       <Typography.Title level={1}>好朋友们</Typography.Title>
+      <Typography.Paragraph>
+        以下友链, 站长会不定期检查并注明问题的~
+      </Typography.Paragraph>
+      <Typography.Paragraph>
+        站长爱你们哦~<sub>(小声)</sub>
+      </Typography.Paragraph>
       <Typography.Title level={2}>咱的友链哦</Typography.Title>
       <Row gutter={[8, 8]}>
         <FriendCard
@@ -144,14 +150,24 @@ export default function FriendsContent(props: {}) {
           desc="沉浸在Touch Fish的海洋中无法自拔"
           link="https://blog.lfhsheng.com/"
           extra={
-            <Popover
-              title="2024.3.23"
-              content="贵站似乎未添加本站的友情链接，记得检查。"
-            >
-              <Tag color="warning" icon={<QuestionCircleOutlined />}>
-                消失的友链
-              </Tag>
-            </Popover>
+            <div>
+              <Popover
+                title="2024.3.23"
+                content="贵站似乎未添加本站的友情链接，记得检查。"
+              >
+                <Tag color="warning" icon={<QuestionCircleOutlined />}>
+                  消失的友链
+                </Tag>
+              </Popover>
+              <Popover
+                title="2024.5.18"
+                content="贵站的 TLS 证书已过期, 请及时续订。"
+              >
+                <Tag color="warning" icon={<SafetyCertificateOutlined />}>
+                  TLS 证书已过期
+                </Tag>
+              </Popover>
+            </div>
           }
         />
         <FriendCard
@@ -249,6 +265,18 @@ export default function FriendsContent(props: {}) {
           avatar={imgPll}
           desc="PangLAN 的博客"
           link="https://pll.moe/"
+          extra={
+            <div>
+              <Popover
+                title="2024.5.18"
+                content="贵站似乎未添加本站的友情链接，记得检查。"
+              >
+                <Tag color="warning" icon={<QuestionCircleOutlined />}>
+                  消失的友链
+                </Tag>
+              </Popover>
+            </div>
+          }
         />
       </Row>
       <Divider />
