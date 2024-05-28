@@ -13,8 +13,7 @@ function LinkTitle(props: {
   target?: string;
 }) {
   return props.target ? (
-    <a href={props.target} target='_blank'>
-      
+    <a href={props.target} target="_blank">
       <Typography.Paragraph underline>
         {props.icon} {props.title}
       </Typography.Paragraph>
@@ -77,8 +76,8 @@ export default function PlayContent(props: {}) {
     <Anim k="root-death" className="__content__">
       <Typography.Title>色天堂</Typography.Title>
       <Typography.Paragraph>
-        在这个庄重, 涩涩且自由的环境里, ta
-        们在另一个维度，过着自己渴望的幸福生活。
+        在这个庄重, 涩涩且自由的环境里, ta 们在另一个维度,
+        过着自己渴望的幸福生活。
       </Typography.Paragraph>
       <Divider orientation="left">小可爱们</Divider>
       <Row gutter={[8, 8]}>
@@ -91,6 +90,12 @@ export default function PlayContent(props: {}) {
           tgLink="https://t.me/meow_starmoe"
         />
       </Row>
+      <Divider />
+      <Typography.Paragraph>天堂虽好, 但可不要贪杯哦~</Typography.Paragraph>
+      <Typography.Paragraph>一起活下去喵, 抱住~</Typography.Paragraph>
+      <Typography.Paragraph>
+        服主一定不会出现在这里的<sub>(小声)</sub>
+      </Typography.Paragraph>
     </Anim>
   );
 }
