@@ -282,7 +282,7 @@ export default function FriendsContent(props: {}) {
         <FriendCard
           title="深夜不开门的深夜食堂"
           avatar={imgLemonno}
-          desc="迷失的人迷失了，相逢的人会再相逢"
+          desc="草，榨干的柠檬被榨干了，榨出柠檬汁会被榨出"
           link="https://lemonno.xyz/"
         />
       </Row>
