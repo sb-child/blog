@@ -14,6 +14,7 @@ import imgSharelter from '@/assets/images/friends/sharelter.jpeg';
 import imgStarmoe from '@/assets/images/friends/starmoe.webp';
 import imgUdon from '@/assets/images/friends/udon.png';
 import imgValki from '@/assets/images/friends/valki.png';
+import imgLemonno from '@/assets/images/friends/lemonno.jpg';
 import CodeView from '@/components/CodeView';
 import Anim from '@/components/animated';
 import { copyToClipboard } from '@/utils/clipboard';
@@ -277,6 +278,12 @@ export default function FriendsContent(props: {}) {
               </Popover>
             </div>
           }
+        />
+        <FriendCard
+          title="深夜不开门的深夜食堂"
+          avatar={imgLemonno}
+          desc="迷失的人迷失了，相逢的人会再相逢"
+          link="https://lemonno.xyz/"
         />
       </Row>
       <Divider />
