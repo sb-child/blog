@@ -16,6 +16,7 @@ export default defineConfig({
     { path: '/articles', component: '@/home/Articles' },
     { path: '/play/:id', component: '@/home/Play' },
     { path: '/game', component: '@/game' },
+    { path: '/death', component: '@/home/Death' },
     // { path: '/loading', component: '@/loading' },
     { path: '/*', redirect: '/' }, // 404
     // "/posts" routes will automatic generate by

@@ -1,6 +1,11 @@
 import ccbysaImage from '@/assets/images/ccbysa-big.png';
 import siteLogo from '@/assets/images/site-logo.png';
-import { PostInfo, findPost, getBuildTime, toTimeStr } from '@/global';
+import {
+  PostInfo,
+  findPost,
+  getBuildTime,
+  toTimeStr,
+} from '@/global';
 import Theme from '@/theme/Theme';
 import {
   AppstoreOutlined,
@@ -235,10 +240,20 @@ const Inner = (props: {}) => {
 };
 
 export default function Layout() {
+  const loc = useLocation();
+  const [currTheme, setCurrTheme] = React.useState<'normal' | 'death'>("normal");
+  React.useEffect(() => {
+    if (loc.pathname == '/death') {
+      setCurrTheme('death');
+    } else {
+      setCurrTheme('normal');
+    }
+    return () => {};
+  }, [loc]);
   return (
     <React.StrictMode>
       <App>
-        <Theme key="ThemeWrapper">
+        <Theme key="ThemeWrapper" theme={currTheme}>
           <Inner />
         </Theme>
       </App>

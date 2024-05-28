@@ -1,10 +1,9 @@
-import { currentTheme } from '@/global';
 import { ConfigProvider, theme } from 'antd';
 import zhCN from 'antd/locale/zh_CN';
 import React from 'react';
-const { darkAlgorithm } = theme;
+const { darkAlgorithm, defaultAlgorithm } = theme;
 
-function App(props: { children: React.ReactNode }) {
+function App(props: { children: React.ReactNode; theme: 'normal' | 'death' }) {
   const tokenNormal = {
     colorPrimary: '#539bf5',
     colorInfo: '#9fbadc',
@@ -20,23 +19,24 @@ function App(props: { children: React.ReactNode }) {
     colorPrimaryBorderHover: '#3981da',
   };
   const tokenDeath = {
-    colorPrimary: '#d98937',
-    colorInfo: '#d98937',
-    // borderRadius: 10,
-    colorBgBase: '#f5f1d4',
+    colorPrimary: '#dc823c',
+    colorInfo: '#dc823c',
+    colorTextBase: '#232323',
+    colorBgBase: '#f5e9dc',
     wireframe: false,
   };
-  const token = currentTheme === 'normal' ? tokenNormal : tokenDeath;
+  const token = props.theme === 'normal' ? tokenNormal : tokenDeath;
   return (
     <ConfigProvider
       locale={zhCN}
       theme={{
         token: token,
-        algorithm: currentTheme === 'normal' ? [darkAlgorithm] : [],
+        algorithm:
+          props.theme === 'normal' ? [darkAlgorithm] : [defaultAlgorithm],
       }}
       key="AntdConfig"
     >
-      <div className={'_theme_root_ _theme_' + currentTheme}>
+      <div className={'_theme_root_ _theme_' + props.theme}>
         {props.children}
       </div>
     </ConfigProvider>

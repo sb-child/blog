@@ -1,6 +1,10 @@
 import dayjs from 'dayjs';
 
-export const currentTheme: 'normal' | 'death' = 'normal';
+export let currentTheme: 'normal' | 'death' = 'normal';
+
+export function setCurrentTheme(x: 'normal' | 'death') {
+  currentTheme = x;
+}
 
 // import React from "react";
 // React.useState();
@@ -89,6 +93,21 @@ export function findPost(pathName: string): PostInfo | undefined {
         component: '@/home/Articles',
         url: '/articles',
         fileName: '@/home/Articles.tsx',
+      };
+    case '/death':
+      return {
+        title: '色天堂',
+        folder: 'layout',
+        createdAt: 0,
+        updatedAt: 0,
+        hide: false,
+        desc: '',
+        tags: [],
+        nextUrl: '/',
+        suggest: [],
+        component: '@/home/Death',
+        url: '/death',
+        fileName: '@/home/Death.tsx',
       };
     default:
       break;

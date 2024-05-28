@@ -2,6 +2,7 @@ import { ReactComponent as TelegramLogo } from '@/assets/icons/telegram.svg';
 import Anim from '@/components/animated';
 import Icon, {
   BookOutlined,
+  CloudOutlined,
   ContainerOutlined,
   GithubOutlined,
   HomeOutlined,
@@ -60,8 +61,9 @@ export default function RootContent(props: {}) {
             />
           }
           onClick={() => nav('/game')}
+          disabled
         >
-          打把游戏
+          打把游戏(todo)
         </Button>
         <Button
           size="large"
@@ -69,6 +71,14 @@ export default function RootContent(props: {}) {
           onClick={() => nav('/tools')}
         >
           神奇工具
+        </Button>
+        <Button
+          size="large"
+          icon={<CloudOutlined />}
+          onClick={() => nav('/death')}
+          danger
+        >
+          色天堂
         </Button>
         <Button
           icon={<ContainerOutlined />}
