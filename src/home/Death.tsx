@@ -13,7 +13,8 @@ function LinkTitle(props: {
   target?: string;
 }) {
   return props.target ? (
-    <a href={props.target}>
+    <a href={props.target} target='_blank'>
+      
       <Typography.Paragraph underline>
         {props.icon} {props.title}
       </Typography.Paragraph>
