@@ -15,6 +15,7 @@ import imgSharelter from '@/assets/images/friends/sharelter.jpeg';
 import imgStarmoe from '@/assets/images/friends/starmoe.webp';
 import imgUdon from '@/assets/images/friends/udon.png';
 import imgValki from '@/assets/images/friends/valki.png';
+import imgLiet from '@/assets/images/friends/liet.jpg';
 import CodeView from '@/components/CodeView';
 import Anim from '@/components/animated';
 import { copyToClipboard } from '@/utils/clipboard';
@@ -284,6 +285,12 @@ export default function FriendsContent(props: {}) {
           avatar={imgLemonno}
           desc="草，榨干的柠檬被榨干了，榨出柠檬汁会被榨出"
           link="https://lemonno.xyz/"
+        />
+        <FriendCard
+          title="Liet Blog"
+          avatar={imgLiet}
+          desc="Liet Blue 的博客喵~"
+          link="https://liet.moe/"
         />
       </Row>
       <Divider />
