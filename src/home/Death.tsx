@@ -99,7 +99,7 @@ export default function DeathContent(props: {}) {
         />
         <DeathCard
           title="猫猫(CatMatrix)"
-          desc={'"一个失败的 MtF"? 和艾伦·图灵相似的死法。'}
+          desc={'"一个失败的 MtF"? 咱都有点喜欢她, 但是咱喜欢的每一个人都死的比咱早。和艾伦·图灵相似的死法。'}
           deathDate={false}
           avatar={ImgCatMatrix}
           githubLink="https://github.com/Butyllithium"
