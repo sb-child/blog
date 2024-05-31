@@ -1,6 +1,7 @@
 import { ReactComponent as OauLogo } from '@/assets/icons/oau.svg';
 import { ReactComponent as TelegramLogo } from '@/assets/icons/telegram.svg';
 import ImgCatMatrix from '@/assets/images/death/cat_matrix.jpg';
+import ImgClark from '@/assets/images/death/clark.jpg';
 import ImgSbchild from '@/assets/images/death/sbchild.jpg';
 import ImgStarmoe from '@/assets/images/death/starmoe.jpg';
 import Anim from '@/components/animated';
@@ -131,6 +132,14 @@ export default function DeathContent(props: {}) {
           githubLink="https://github.com/Butyllithium"
           tgLink="https://t.me/CatMatrix_QAQ"
           oauLink={false}
+        />
+        <DeathCard
+          title="Clark"
+          desc={'"不用...你会在新闻上看到我的..."ta 死于一场很精彩的谢幕演出。'}
+          deathDate={false}
+          avatar={ImgClark}
+          githubLink="https://github.com/ClarkQAQ"
+          tgLink="https://t.me/clarkqaq"
         />
       </Row>
       <Divider />
