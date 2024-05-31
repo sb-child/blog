@@ -1,10 +1,20 @@
 import { ReactComponent as OauLogo } from '@/assets/icons/oau.svg';
 import { ReactComponent as TelegramLogo } from '@/assets/icons/telegram.svg';
 import ImgCatMatrix from '@/assets/images/death/cat_matrix.jpg';
+import ImgSbchild from '@/assets/images/death/sbchild.jpg';
 import ImgStarmoe from '@/assets/images/death/starmoe.jpg';
 import Anim from '@/components/animated';
 import Icon, { GithubOutlined } from '@ant-design/icons';
-import { Avatar, Card, Col, Divider, Row, Typography, Watermark } from 'antd';
+import {
+  Avatar,
+  Card,
+  Col,
+  Divider,
+  Row,
+  Switch,
+  Typography,
+  Watermark,
+} from 'antd';
 import React from 'react';
 
 function LinkTitle(props: {
@@ -80,6 +90,7 @@ function DeathCard(props: {
 }
 
 export default function DeathContent(props: {}) {
+  const [showOwner, setShowOwner] = React.useState(false);
   return (
     <Anim k="root-death" className="__content__">
       <Typography.Title>色天堂</Typography.Title>
@@ -87,8 +98,21 @@ export default function DeathContent(props: {}) {
         在这个庄重, 涩涩且自由的环境里, ta 们在另一个维度,
         过着自己渴望的幸福生活。
       </Typography.Paragraph>
+      <Typography.Paragraph delete>
+        言归正传, 以下是死亡笔记喵, 写谁谁死, 所以尽量还是不要被写进去喵...
+      </Typography.Paragraph>
       <Divider orientation="left">小可爱们</Divider>
       <Row gutter={[8, 8]}>
+        {showOwner ? (
+          <DeathCard
+            title="色妹妹(sbchild)"
+            desc="色天堂的掌门人。不过希望她不会真的进入天堂。"
+            deathDate={false}
+            avatar={ImgSbchild}
+            githubLink="https://github.com/sb-child"
+            tgLink="https://t.me/sbchild"
+          />
+        ) : null}
         <DeathCard
           title="残念(starmoe)"
           desc="真的很可爱而且喜欢 meow 的大姐姐...可惜复活赛打输了。"
@@ -99,7 +123,9 @@ export default function DeathContent(props: {}) {
         />
         <DeathCard
           title="猫猫(CatMatrix)"
-          desc={'"一个失败的 MtF"? 咱都有点喜欢她, 但是咱喜欢的每一个人都死的比咱早。和艾伦·图灵相似的死法。'}
+          desc={
+            '"一个失败的 MtF"? 咱都有点喜欢她, 但是咱喜欢的每一个人都死的比咱早。和艾伦·图灵相似的死法。'
+          }
           deathDate={false}
           avatar={ImgCatMatrix}
           githubLink="https://github.com/Butyllithium"
@@ -111,7 +137,9 @@ export default function DeathContent(props: {}) {
       <Typography.Paragraph>天堂虽好, 但可不要贪杯哦~</Typography.Paragraph>
       <Typography.Paragraph>一起活下去喵, 抱住~</Typography.Paragraph>
       <Typography.Paragraph>
-        服主一定不会出现在这里的<sub>(小声)</sub>
+        服主一定不会出现在这里的<sub>(小声)</sub>{' '}
+        <Switch onChange={setShowOwner} />
+        显示服主
       </Typography.Paragraph>
     </Anim>
   );
