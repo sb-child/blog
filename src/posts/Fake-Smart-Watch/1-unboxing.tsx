@@ -54,9 +54,13 @@ export default function Content(props: {}) {
       <TP>
         脱掉了它的衣服, 然后看看它的肚皮~ 但是里面那个黄色的东西是什么呀...
         难道是传说中的{' '}
-        <LK to="https://zh.wikipedia.org/wiki/%E6%9F%94%E6%80%A7%E5%8D%B0%E5%88%B7%E7%94%B5%E8%B7%AF%E6%9D%BF">
+        <a
+          href="https://zh.wikipedia.org/wiki/%E6%9F%94%E6%80%A7%E5%8D%B0%E5%88%B7%E7%94%B5%E8%B7%AF%E6%9D%BF"
+          target="_blank"
+          rel="noreferrer"
+        >
           FPC
-        </LK>
+        </a>
         ?
       </TP>
       <IM src={img3} />
@@ -95,16 +99,27 @@ export default function Content(props: {}) {
       <IM src={img14} />
       <TP>电路板背面特写:</TP>
       <TP>
-        看样子有两组 <LK to="https://zh.wikipedia.org/wiki/I%C2%B2C">I2C</LK>{' '}
+        看样子有两组{' '}
+        <a
+          href="https://zh.wikipedia.org/wiki/I%C2%B2C"
+          target="_blank"
+          rel="noreferrer"
+        >
+          I2C
+        </a>{' '}
         总线?
       </TP>
       <IM src={img15} />
       <TT level={2}>无奖竞猜</TT>
       <TP>
         这 4 个{' '}
-        <LK to="https://zh.wikipedia.org/wiki/%E7%99%BC%E5%85%89%E4%BA%8C%E6%A5%B5%E7%AE%A1">
+        <a
+          href="https://zh.wikipedia.org/wiki/%E7%99%BC%E5%85%89%E4%BA%8C%E6%A5%B5%E7%AE%A1"
+          target="_blank"
+          rel="noreferrer"
+        >
           LED
-        </LK>{' '}
+        </a>{' '}
         是怎么测心率的...
       </TP>
       <IM src={img16} />
