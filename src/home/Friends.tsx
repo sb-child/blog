@@ -8,6 +8,7 @@ import imgHiyase from '@/assets/images/friends/hiyase.jpeg';
 import imgKeke from '@/assets/images/friends/keke.jpg';
 import imgLemonno from '@/assets/images/friends/lemonno.jpg';
 import imgLfhsheng from '@/assets/images/friends/lfhs.jpg';
+import imgLiet from '@/assets/images/friends/liet.jpg';
 import imgMilena from '@/assets/images/friends/milena.png';
 import imgPll from '@/assets/images/friends/pll.jpg';
 import imgPoly from '@/assets/images/friends/poly000.png';
@@ -15,12 +16,12 @@ import imgSharelter from '@/assets/images/friends/sharelter.jpeg';
 import imgStarmoe from '@/assets/images/friends/starmoe.webp';
 import imgUdon from '@/assets/images/friends/udon.png';
 import imgValki from '@/assets/images/friends/valki.png';
-import imgLiet from '@/assets/images/friends/liet.jpg';
 import CodeView from '@/components/CodeView';
 import Anim from '@/components/animated';
 import { copyToClipboard } from '@/utils/clipboard';
 import {
   AlertOutlined,
+  BugOutlined,
   CopyOutlined,
   GlobalOutlined,
   QuestionCircleOutlined,
@@ -277,6 +278,14 @@ export default function FriendsContent(props: {}) {
                   消失的友链
                 </Tag>
               </Popover>
+              <Popover
+                title="2024.6.28"
+                content="贵站网页无法正常浏览，记得检查。"
+              >
+                <Tag color="warning" icon={<BugOutlined />}>
+                  无限重定向
+                </Tag>
+              </Popover>
             </div>
           }
         />
@@ -291,6 +300,18 @@ export default function FriendsContent(props: {}) {
           avatar={imgLiet}
           desc="Liet Blue 的博客喵~"
           link="https://liet.moe/"
+          extra={
+            <div>
+              <Popover
+                title="2024.6.28"
+                content="贵站未添加本站的友情链接，记得加上。"
+              >
+                <Tag color="warning" icon={<QuestionCircleOutlined />}>
+                  未添加友链
+                </Tag>
+              </Popover>
+            </div>
+          }
         />
       </Row>
       <Divider />
