@@ -34,7 +34,7 @@ const Inner = (props: {}) => {
     setPost(findPost(loc.pathname));
     setContentKey('content_key_' + loc.pathname);
     window.scrollTo({ left: 0, top: 0, behavior: 'auto' });
-    return () => {};
+    return () => { };
   }, [loc]);
 
   // postRoutes
@@ -58,7 +58,7 @@ const Inner = (props: {}) => {
               hidden
               disabledOverflow={true}
               style={{ height: '100%', borderBottomWidth: '0px' }}
-              onClick={() => {}}
+              onClick={() => { }}
               selectedKeys={['0']}
               mode="horizontal"
               items={[
@@ -143,7 +143,7 @@ const Inner = (props: {}) => {
           layout="preserve-aspect"
           className={styles.postBlock}
           animate={{ height: '100%' }}
-          // transition={{ ease: 'linear', duration: 5 }}
+        // transition={{ ease: 'linear', duration: 5 }}
         >
           <Typography className={styles.postText}>
             <AnimatePresence mode="wait">
@@ -248,7 +248,7 @@ export default function Layout() {
     } else {
       setCurrTheme('normal');
     }
-    return () => {};
+    return () => { };
   }, [loc]);
   return (
     <React.StrictMode>
