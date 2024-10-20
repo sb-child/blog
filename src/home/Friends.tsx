@@ -267,27 +267,7 @@ export default function FriendsContent(props: {}) {
           title="PangLAN"
           avatar={imgPll}
           desc="PangLAN 的博客"
-          link="https://pll.moe/"
-          extra={
-            <div>
-              <Popover
-                title="2024.5.18"
-                content="贵站似乎未添加本站的友情链接，记得检查。"
-              >
-                <Tag color="warning" icon={<QuestionCircleOutlined />}>
-                  消失的友链
-                </Tag>
-              </Popover>
-              <Popover
-                title="2024.6.28"
-                content="贵站网页无法正常浏览，记得检查。"
-              >
-                <Tag color="warning" icon={<BugOutlined />}>
-                  无限重定向
-                </Tag>
-              </Popover>
-            </div>
-          }
+          link="https://panglars.cc/"
         />
         <FriendCard
           title="深夜不开门的深夜食堂"

@@ -21,20 +21,20 @@
     ]
   },
   "dependencies": {
-    "@ant-design/icons": "^5.4.0",
-    "@babel/core": "^7.25.2",
-    "@babel/preset-react": "^7.24.7",
+    "@ant-design/icons": "^5.5.1",
+    "@babel/core": "^7.25.8",
+    "@babel/preset-react": "^7.25.7",
     "@mdi/js": "^7.4.47",
     "@mdi/react": "^1.6.1",
     "@monaco-editor/react": "^4.6.0",
-    "@types/node": "^20.14.15",
+    "@types/node": "^20.16.13",
     "@types/prismjs": "^1.26.4",
-    "@umijs/lint": "^4.3.12",
-    "antd": "^5.20.0",
+    "@umijs/lint": "^4.3.27",
+    "antd": "^5.21.4",
     "babel-plugin-prismjs": "^2.1.0",
     "base64-js": "^1.5.1",
-    "dayjs": "^1.11.12",
-    "eslint": "^8.57.0",
+    "dayjs": "^1.11.13",
+    "eslint": "^9.13.0",
     "framer-motion": "^10.18.0",
     "js-base64": "^3.7.7",
     "localforage": "^1.10.0",
@@ -44,18 +44,18 @@
     "prismjs": "^1.29.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^6.26.0",
+    "react-router-dom": "^6.27.0",
     "sort-by": "^1.2.0",
-    "stylelint": "^16.8.1",
-    "umi": "^4.3.12",
-    "webpack": "^5.93.0"
+    "stylelint": "^16.10.0",
+    "umi": "^4.3.27",
+    "webpack": "^5.95.0"
   },
   "devDependencies": {
-    "@types/react": "^18.3.3",
-    "@types/react-dom": "^18.3.0",
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.1",
     "prettier": "^3.3.3",
     "prettier-plugin-organize-imports": "^3.2.4",
-    "prettier-plugin-packagejson": "^2.5.1",
-    "typescript": "^5.5.4"
+    "prettier-plugin-packagejson": "^2.5.3",
+    "typescript": "^5.6.3"
   }
 }
