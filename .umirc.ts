@@ -22,7 +22,7 @@ export default defineConfig({
     // "/posts" routes will automatic generate by
     // a plugin at ./src/plugins/inject.ts
   ],
-  chainWebpack: (memo, args) => {
+  chainWebpack: (memo: any, args: any) => {
     memo.plugin('monaco-editor-webpack-plugin').use(
       new MonacoEditorWebpackPlugin({
         languages: [
@@ -45,8 +45,10 @@ export default defineConfig({
   hash: true,
   plugins: ['./src/plugins/inject.ts'],
   inject: {},
+  deadCode: {},
+  // mako: {},
   npmClient: 'pnpm',
-  codeSplitting: { jsStrategy: 'granularChunks' },
+  // codeSplitting: { jsStrategy: 'granularChunks' },
   esbuildMinifyIIFE: true,
   clientLoader: {},
   mfsu: {
